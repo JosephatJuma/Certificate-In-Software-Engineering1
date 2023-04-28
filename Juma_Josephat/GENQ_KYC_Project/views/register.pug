@@ -3,70 +3,82 @@ head
   meta(charset='UTF-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  title Register Urban Farmer
+  title Registeration form
   link(rel='stylesheet' href='/assets/bootstrap/css/bootstrap.min.css')
   link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css')
-  link(rel="shortcut icon", href="/assets/vectors/ufarm-logo.png", type="image/x-icon")
-  link(rel="stylesheet" href="/css/dashboard.css")  
-body(onload="generateFarmerId()")
-header
-
-main(style='margin-top: 58px')
+  link(rel="stylesheet" href="assets/css/styles.css")  
+body
+ main(style='align-self: center; margin-left:10%;')
   .container-fluid.pt-4
-    .col-md-8
+    .col-md-10
       .card.card-user
         .card-header.text-white.bg-dark
-          h5.card-title GENQ KYC FORM
+          h1.card-title GENQ KYC FORM
         .card-body
-          if message 
-              #error
-                .alert.bg-danger.alert-dismissible.show(style="display:flex;justify-content:space-between;")
-                      p.text-white
-                        strong Failed: 
-                        | #{message}
-                      button.btn.text-white(onclick="return hideError();")
-                        span &times; 
-          form#register-form(onsubmit='return validUrbanFarmerForm()' method="post" action="/register/uf")
+         
+          form#register-form(onsubmit='return validate();' method="post" action="/register")
             .row
-              h2 Bio Data
+              h2.text-secondary Bio Data
               hr
             .row
               .col-md-6.pr-1
                 .form-group
                   input#fname.form-control(type='text' placeholder='First Name' name='fname')
-                  p#nameErr.text-danger
               .col-md-6.pr-1
                 .form-group
                   input#lname.form-control(type='text' placeholder='Last Name' name='lname' )
-                  p#idErr.text-danger
             .row
               .col-md-6.pr-1
                 .form-group
                   input#date-of-birth.form-control(type='date' placeholder='Date of Birth (DD/MM/YYYY)' name='date_of_birth')
-                  p#nameErr.text-danger
               .col-md-6.pr-1
                 .form-group
-                  input#gender.form-control(type='text' placeholder='Gender' name='gender' )
-                  p#idErr.text-danger
-            .row
-              h2 Location
-              hr
-             
-                
-                  
-            .row
-              .col-md-4.pl-1
-                .form-group
-                  label Gender
                   select#gender.form-select(name='gender')
-                    option(value="" selected disabled) Select Gender
+                    option(value="" selected disabled) Gender
                     option(value='Male') Male
                     option(value='Female') Female
-                p#genderErr.text-danger 
-              
             .row
-              .update.ml-auto.mr-auto
-                input.btn.btn-success.btn-round(type='submit' value='SUBMIT DETAILS')
+              h2.text-secondary Location
+              hr
+            .row
+                .col-md-6.pr-1
+                 .form-group
+                  select#country.form-select(name='country')
+                    option(value="" selected disabled) Country
+                    option(value='Uganda') Uganda
+                    option(value='Kenya') Kenya
+                    option(value='Tanzania') Tanzania 
+                    option(value='Burundi') Burundi
+                    option(value='Rwanda') Rwanda
+                    option(value='South Sudan') South Sudan
+                .col-md-6.pr-1    
+                 .form-group
+                    input#state.form-control(type='text' placeholder='State/District' name='state' )
+            .row
+              .col-md-6.pr-1
+                .form-group
+                    input#town.form-control(type='text' placeholder='Town' name='town' )
+              .col-md-6.pr-1
+                .form-group
+                    input#zip.form-control(type='text' placeholder='Zip Code' name='zip-code' )
+            .row
+              h2.text-secondary Contacts and Address 
+              hr
+            .row 
+              .col-md-6.pr-1
+                .form-group
+                    input#phone1.form-control(type='tel' placeholder='Phone Number 1' name='phone1' )
+              .col-md-6.pr-1
+                .form-group
+                    input#phone2.form-control(type='tel' placeholder='Phone Number 2' name='phone2' )
+            .row 
+              .col-md-12.pr-1
+                 .form-group
+                    input#email.form-control(type='email' placeholder='Email' name='email' ) 
+            .row
+             .col-md-6.pr-1
+              .form-group
+                input.btn.btn-warning.btn-round.text-white.form-control(type='submit' value='SUBMIT')
 // Main layout
 script(src='/assets/bootstrap/js/bootstrap.min.js')
 script(src='/assets/bootstrap/js/bootstrap.bundle.js')
