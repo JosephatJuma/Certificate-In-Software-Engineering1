@@ -84,7 +84,7 @@ const validateForm = () => {
     err.textContent = "Date is required";
     return false;
   }
-  if (current.getFullYear() - dateValue < 18) {
+  if (current.getFullYear() - dateValue.getFullYear() < 18) {
     indictateErr();
     input.focus();
     err = document.getElementById("dateErr");
