@@ -76,6 +76,7 @@ const validateForm = () => {
   //validate date
   input = document.getElementById("date_of_birth");
   let date = document.getElementById("date_of_birth").value;
+  let dateValue = new Date(date);
   if (!date) {
     indictateErr();
     input.focus();
@@ -83,9 +84,6 @@ const validateForm = () => {
     err.textContent = "Date is required";
     return false;
   }
-  input = document.getElementById("date_of_birth");
-  date = document.getElementById("date_of_birth").value;
-  let dateValue = new Date(date);
   if (current.getFullYear() - dateValue < 18) {
     indictateErr();
     input.focus();
