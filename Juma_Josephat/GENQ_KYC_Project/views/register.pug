@@ -12,15 +12,16 @@ body
   .container-fluid.pt-4
     .col-md-10
       .card
-        .card-header.text-white.bg-dark
+        .card-header.text-white.bg-dark.text-center
           h1.card-title GENQ KYC FORM
         .card-body
           if message
-              .alert.bg-success
-                    p.text-white
-                      strong #{message}
-                    button.btn.text-white(onclick="return hideMessage();")
-                      span &times; 
+              #success-alert
+                .alert.bg-success
+                  h5.text-white
+                    strong #{message}
+                  button.btn.text-white(onclick="return hideMessage();")
+                    span &times; 
           form#register_form(onsubmit='return validateForm();' method="post" action="/")
             .row
               h2.text-secondary Bio Data
@@ -83,7 +84,7 @@ body
                  .form-group
                     input#email.form-control(type='email' placeholder='Email' name='email' ) 
             .row
-             .col-md-6.pr-1(style="justify-content:right;")
+             .col-md-6.pr-1(style="justify-content:right; margin:left:20;")
               .form-group
                 input.btn.btn-warning.btn-round.text-white.form-control(type='submit' value='SUBMIT')
 
