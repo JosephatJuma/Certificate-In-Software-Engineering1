@@ -73,10 +73,13 @@ const validateForm = () => {
   input.style.borderColor = "";
   err.textContent = "";
   let date = document.forms["register_form"]["date_of_birth"];
-  let current = new Date();
-
-  //   if (current.getFullYear() - date.year < 18) {
+  //   let current = new Date();
+  //   const parts = date.split("-");
+  //   const year = parts[0];
+  console.log(date);
+  //   if (current.getFullYear() - year < 18) {
   //     alert("Customer must be 18 years and above");
+  //     return false;
   //   }
   let address = document.forms["register_form"]["district"];
   indictateValid();
