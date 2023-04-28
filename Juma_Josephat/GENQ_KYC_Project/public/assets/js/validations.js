@@ -72,15 +72,27 @@ const validateForm = () => {
   }
   input.style.borderColor = "";
   err.textContent = "";
-  let date = document.forms["register_form"]["date_of_birth"];
-  //   let current = new Date();
-  //   const parts = date.split("-");
-  //   const year = parts[0];
-  console.log(date);
-  //   if (current.getFullYear() - year < 18) {
-  //     alert("Customer must be 18 years and above");
-  //     return false;
-  //   }
+
+  //validate date
+  input = document.getElementById("date_of_birth");
+  let date = document.getElementById("date_of_birth").value;
+  if (!date) {
+    indictateErr();
+    input.focus();
+    err = document.getElementById("dateErr");
+    err.textContent = "Date is required";
+    return false;
+  }
+  input = document.getElementById("date_of_birth");
+  date = document.getElementById("date_of_birth").value;
+  let dateValue = new Date(date);
+  if (current.getFullYear() - dateValue < 18) {
+    indictateErr();
+    input.focus();
+    err = document.getElementById("dateErr");
+    err.textContent = "Customer must be 18 years and above";
+    return false;
+  }
   let address = document.forms["register_form"]["district"];
   indictateValid();
   return true;
