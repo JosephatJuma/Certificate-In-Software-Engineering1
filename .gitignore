@@ -118,6 +118,8 @@ dist
 
 # TernJS port file
 .tern-port
+#leave out node module
+./Juma_Josephat/GENQ_KYC_Project/node_modules
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
