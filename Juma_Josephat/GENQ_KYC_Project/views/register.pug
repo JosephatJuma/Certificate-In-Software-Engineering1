@@ -11,12 +11,17 @@ body
  main(style='align-self: center; margin-left:10%;')
   .container-fluid.pt-4
     .col-md-10
-      .card.card-user
+      .card
         .card-header.text-white.bg-dark
           h1.card-title GENQ KYC FORM
         .card-body
-         
-          form#register-form(onsubmit='return validate();' method="post" action="/register")
+          if message
+              .alert.bg-success
+                    p.text-white
+                      strong #{message}
+                    button.btn.text-white(onclick="return hideMessage();")
+                      span &times; 
+          form#register_form(onsubmit='return validateForm();' method="post" action="/")
             .row
               h2.text-secondary Bio Data
               hr
@@ -24,9 +29,11 @@ body
               .col-md-6.pr-1
                 .form-group
                   input#first_name.form-control(type='text' placeholder='First Name' name='first_name')
+                  p#fnameErr.text-danger
               .col-md-6.pr-1
                 .form-group
                   input#last_name.form-control(type='text' placeholder='Last Name' name='last_name' )
+                  p#lnameErr.text-danger
             .row
               .col-md-6.pr-1
                 .form-group
@@ -34,7 +41,7 @@ body
               .col-md-6.pr-1
                 .form-group
                   select#gender.form-select(name='gender')
-                    option(value="" selected disabled) Gender
+                    option(value="" selected disabled) Select Gender
                     option(value='Male') Male
                     option(value='Female') Female
             .row
@@ -76,12 +83,9 @@ body
                  .form-group
                     input#email.form-control(type='email' placeholder='Email' name='email' ) 
             .row
-             .col-md-6.pr-1
+             .col-md-6.pr-1(style="justify-content:right;")
               .form-group
                 input.btn.btn-warning.btn-round.text-white.form-control(type='submit' value='SUBMIT')
-// Main layout
-script(src='/assets/bootstrap/js/bootstrap.min.js')
-script(src='/assets/bootstrap/js/bootstrap.bundle.js')
-script(src='/assets/bootstrap/js/bootstrap.bundle.min.js')
-script(src='/assets/bootstrap/js/bootstrap.js')
+
+script(src='/assets/js/validations.js')
 

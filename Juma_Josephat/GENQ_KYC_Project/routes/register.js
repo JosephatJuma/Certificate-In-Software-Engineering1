@@ -9,7 +9,9 @@ router.post("/", async (req, res) => {
   newCustomer
     .save()
     .then(() => {
-      res.send(req.body);
+      res.render("register.pug", {
+        message: "Form has been submited successfully!",
+      });
     })
     .catch((error) => {
       res.send(error);

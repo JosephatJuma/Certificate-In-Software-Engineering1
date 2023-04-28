@@ -26,10 +26,7 @@ app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public"))); //set public dir for assests
-app.use("/register", registerRoute);
-app.get("/", (req, res) => {
-  res.send("Working");
-});
+app.use("/", registerRoute);
 
 app.listen(5000, "localhost", () => {
   console.log("App runnings on port 5000");
